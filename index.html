@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>쌍령초 구글 계정 복사하기</title>
+<style>
+:root{font-family:Pretendard,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19253b;background:#f3f7ff}
+*{box-sizing:border-box}body{margin:0;padding:28px 16px 45px}main{max-width:760px;margin:auto}header{text-align:center;margin:10px auto 27px}h1{font-size:clamp(30px,5.6vw,46px);letter-spacing:-1.8px;margin:0 0 12px;font-weight:850}header p{font-size:clamp(16px,3vw,21px);color:#52627b;margin:0}.card{border-radius:24px;background:white;padding:clamp(22px,5vw,38px);box-shadow:0 12px 32px #203a6b12;margin-bottom:20px}.section-title{font-size:clamp(20px,3.5vw,26px);font-weight:800;margin:0 0 19px}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.field label{display:block;font-size:19px;font-weight:800;margin-bottom:9px}.field select,.field input{width:100%;height:68px;border:2px solid #dae2f1;border-radius:15px;background:#fff;text-align:center;font-size:27px;font-weight:750;color:#1b3050;outline:none}.field select:focus,.field input:focus{border-color:#4f70ef;box-shadow:0 0 0 4px #4f70ef20}.hint{color:#67758d;font-size:16px;margin:16px 0 0}.account{margin-top:22px;background:#f3f7ff;border-radius:19px;padding:22px 18px;text-align:center}.account .sub{font-size:17px;color:#4b6080;font-weight:750;margin-bottom:10px}.account .mail{font-size:clamp(16px,3.15vw,28px);font-weight:850;letter-spacing:-.7px;overflow-wrap:anywhere;line-height:1.35}.account .mail.empty{color:#8b99ae}.account .pw{font-size:clamp(30px,5vw,45px);font-weight:850;color:#07875c;letter-spacing:1px}.actions{margin-top:17px}button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;background:#345de7;color:white;border-radius:15px;min-height:67px;font:inherit;font-size:22px;font-weight:850;cursor:pointer;transition:background .15s,transform .15s}button:hover:not(:disabled){background:#2349c8}button:active:not(:disabled){transform:scale(.985)}button:disabled{background:#b6c1d6;cursor:not-allowed}.password-copy{background:#077f60}.password-copy:hover:not(:disabled){background:#066c52}.example{color:#57677e;font-size:16px;text-align:center;margin:17px 0 0;line-height:1.6}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#173653;color:#fff;padding:14px 24px;border-radius:14px;font-size:18px;font-weight:750;box-shadow:0 10px 28px #0003;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;max-width:calc(100vw - 32px)}.toast.show{opacity:1}.notice{font-size:16px;color:#5c6b84;text-align:center;line-height:1.7} @media(max-width:480px){body{padding:20px 12px 35px}.card{border-radius:19px}.fields{gap:9px}.field label{font-size:17px}.field select,.field input{height:60px;font-size:24px}button{font-size:20px;min-height:62px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>우리 학교 구글 계정 찾기</h1><p>학년 · 반 · 번호를 입력하고 복사 버튼을 누르세요.</p></header>
+<section class="card" aria-labelledby="formTitle">
+<h2 class="section-title" id="formTitle">① 내 정보 입력하기</h2>
+<div class="fields">
+<div class="field"><label for="grade">학년</label><select id="grade"><option value="">선택</option><option value="1">1학년</option><option value="2">2학년</option><option value="3">3학년</option><option value="4">4학년</option><option value="5">5학년</option><option value="6">6학년</option></select></div>
+<div class="field"><label for="klass">반</label><select id="klass"><option value="">선택</option></select></div>
+<div class="field"><label for="number">번호</label><input id="number" type="number" inputmode="numeric" min="1" max="99" placeholder="예: 3" aria-describedby="numberHint"/></div>
+</div><p class="hint" id="numberHint">번호는 자동으로 두 자리로 바뀝니다. (3번 → 03)</p>
+<div class="account"><div class="sub">내 구글 계정</div><div class="mail empty" id="email" aria-live="polite">학년 · 반 · 번호를 입력해 주세요</div></div>
+<div class="actions"><button type="button" id="copyEmail" disabled>▣ 계정 주소 복사하기</button></div>
+<p class="example">예시: 3학년 2반 5번 → <strong>ssang3205@ssangnyeong.es.kr</strong></p>
+</section>
+<section class="card"><h2 class="section-title">② 비밀번호 복사하기</h2><div class="account" style="margin-top:0"><div class="sub">학교에서 안내한 비밀번호</div><div class="pw" id="password">12341234</div></div><div class="actions"><button type="button" class="password-copy" id="copyPassword">▣ 비밀번호 복사하기</button></div></section>
+<p class="notice">복사한 계정과 비밀번호를 구글 로그인 화면에 각각 붙여넣으세요.<br>이 페이지는 입력한 정보를 저장하거나 전송하지 않습니다.</p>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+const grade=document.getElementById('grade'),klass=document.getElementById('klass'),number=document.getElementById('number'),email=document.getElementById('email'),copyEmail=document.getElementById('copyEmail'),toast=document.getElementById('toast');
+for(let i=1;i<=20;i++){const option=document.createElement('option');option.value=String(i);option.textContent=i+'반';klass.append(option)}
+let currentEmail='',toastTimeout;
+function update(){const n=Number(number.value),valid=grade.value&&klass.value&&Number.isInteger(n)&&n>=1&&n<=99&&number.value.trim()!=='';currentEmail=valid?'ssang'+grade.value+klass.value+String(n).padStart(2,'0')+'@ssangnyeong.es.kr':'';email.textContent=currentEmail||'학년 · 반 · 번호를 입력해 주세요';email.classList.toggle('empty',!currentEmail);copyEmail.disabled=!currentEmail}
+[grade,klass,number].forEach(x=>x.addEventListener('input',update));
+function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove('show'),2200)}
+async function copy(value,msg){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value)}else{const t=document.createElement('textarea');t.value=value;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();if(!document.execCommand('copy'))throw new Error('복사 실패');t.remove()}notify(msg)}catch(e){notify('복사할 수 없습니다. 글자를 길게 눌러 복사해 주세요.')}}
+copyEmail.addEventListener('click',()=>{if(currentEmail)copy(currentEmail,'계정 주소를 복사했어요!')});document.getElementById('copyPassword').addEventListener('click',()=>copy('12341234','비밀번호를 복사했어요!'));
+</script>
+</body>
+</html>

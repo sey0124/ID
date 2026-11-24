@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>쌍령초 구글 계정 복사하기</title>
+<style>
+:root{font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:#17253d;background:#f3f6fc}*{box-sizing:border-box}html,body{margin:0;min-height:100%;}body{min-height:100dvh;display:grid;place-items:center;padding:16px}main{width:min(100%,1020px)}header{text-align:center;margin-bottom:18px}h1{font-size:clamp(28px,3.4vw,40px);letter-spacing:-1.4px;margin:0 0 7px;font-weight:850}header p{font-size:clamp(15px,1.65vw,19px);color:#52627b;margin:0}.workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(285px,.9fr);gap:18px;align-items:stretch}.card{background:#fff;border-radius:22px;padding:25px;box-shadow:0 10px 28px #203a6b10;min-width:0}.section-title{font-size:clamp(21px,2.3vw,27px);font-weight:850;margin:0 0 20px}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field label{display:block;font-size:18px;font-weight:800;margin-bottom:7px}.field select,.field input{width:100%;height:63px;border:2px solid #dce4f1;border-radius:13px;background:#fff;text-align:center;font-size:clamp(19px,2vw,26px);font-weight:800;color:#1b3050;outline:none}.field select:focus,.field input:focus{border-color:#4f70ef;box-shadow:0 0 0 3px #4f70ef20}.hint{color:#63728b;font-size:14px;margin:12px 0 0}.account{margin-top:18px;background:#f3f7ff;border-radius:15px;padding:19px 12px;text-align:center}.account .sub{font-size:15px;color:#4b6080;font-weight:800;margin-bottom:8px}.account .mail{font-size:clamp(16px,2.05vw,23px);font-weight:850;letter-spacing:-.5px;overflow-wrap:anywhere;line-height:1.3}.account .mail.empty{color:#8796ad}.account .pw{font-size:clamp(29px,3.4vw,43px);font-weight:850;color:#07875c;letter-spacing:1px}.actions{margin-top:14px}button{display:flex;align-items:center;justify-content:center;width:100%;border:0;background:#345de7;color:white;border-radius:13px;min-height:62px;padding:9px 14px;font:inherit;font-size:clamp(18px,2vw,23px);font-weight:850;cursor:pointer}button:hover:not(:disabled){background:#2349c8}button:disabled{background:#aebbd3;cursor:not-allowed}.password-copy{background:#078564}.password-copy:hover:not(:disabled){background:#066c52}.password-card{display:flex;flex-direction:column}.password-card .account{margin-top:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:139px}.password-card .actions{margin-top:14px}.example{color:#57677e;font-size:14px;text-align:center;margin:12px 0 0;line-height:1.5;overflow-wrap:anywhere}.notice{font-size:14px;color:#607089;text-align:center;line-height:1.5;margin:16px 0 0}.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#173653;color:#fff;padding:12px 20px;border-radius:12px;font-size:16px;font-weight:750;box-shadow:0 10px 28px #0003;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;max-width:calc(100vw - 25px);z-index:5}.toast.show{opacity:1}
+@media(max-width:730px){body{padding:12px;display:block}main{max-width:600px;margin:auto}header{margin-bottom:13px}.workspace{grid-template-columns:1fr;gap:12px}.card{padding:17px 18px;border-radius:17px}.section-title{margin-bottom:12px;font-size:21px}.field label{font-size:16px}.field select,.field input{height:52px;font-size:20px}.account{padding:12px;margin-top:12px}.account .sub{margin-bottom:4px}.account .mail{font-size:clamp(15px,3.5vw,21px)}button{min-height:50px;font-size:19px}.actions{margin-top:10px}.password-card{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:12px}.password-card .section-title{grid-column:1 / -1;margin:0}.password-card .account{min-height:73px;padding:9px;margin:0}.password-card .account .pw{font-size:28px}.password-card .actions{margin:0}.example{margin-top:9px;font-size:12px}.notice{margin-top:11px;font-size:12px}}
+@media(max-width:390px){body{padding:8px}h1{font-size:26px}header p{font-size:13px}.card{padding:13px}.workspace{gap:9px}.fields{gap:7px}.field select,.field input{height:48px;font-size:17px}.field label{font-size:15px}.hint{font-size:12px;margin-top:8px}.password-card{gap:8px}.password-card .account .pw{font-size:23px}.password-card button{font-size:15px}.notice{font-size:11px}}
+@media(max-height:750px) and (min-width:731px){body{padding:10px}header{margin-bottom:12px}.card{padding:20px}.section-title{margin-bottom:13px}.field select,.field input{height:55px}.account{margin-top:13px;padding:14px}.actions{margin-top:11px}button{min-height:54px}.notice{margin-top:10px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>우리 학교 구글 계정 찾기</h1><p>학년 · 반 · 번호를 입력하고 복사 버튼을 누르세요.</p></header>
+<div class="workspace"><section class="card" aria-labelledby="formTitle">
+<h2 class="section-title" id="formTitle">① 내 정보 입력하기</h2>
+<div class="fields">
+<div class="field"><label for="grade">학년</label><select id="grade"><option value="">선택</option><option value="1">1학년</option><option value="2">2학년</option><option value="3">3학년</option><option value="4">4학년</option><option value="5">5학년</option><option value="6">6학년</option></select></div>
+<div class="field"><label for="klass">반</label><select id="klass"><option value="">선택</option></select></div>
+<div class="field"><label for="number">번호</label><input id="number" type="number" inputmode="numeric" min="1" max="99" placeholder="예: 3" aria-describedby="numberHint"/></div>
+</div><p class="hint" id="numberHint">번호는 자동으로 두 자리로 바뀝니다. (3번 → 03)</p>
+<div class="account"><div class="sub">내 구글 계정</div><div class="mail empty" id="email" aria-live="polite">학년 · 반 · 번호를 입력해 주세요</div></div>
+<div class="actions"><button type="button" id="copyEmail" disabled>▣ 계정 주소 복사하기</button></div>
+<p class="example">예시: 3학년 2반 5번 → <strong>ssang3205@ssangnyeong.es.kr</strong></p>
+</section>
+<section class="card password-card"><h2 class="section-title">② 비밀번호 복사하기</h2><div class="account" style="margin-top:0"><div class="sub">학교에서 안내한 비밀번호</div><div class="pw" id="password">12341234</div></div><div class="actions"><button type="button" class="password-copy" id="copyPassword">▣ 비밀번호 복사하기</button></div></section></div>
+<p class="notice">복사한 계정과 비밀번호를 구글 로그인 화면에 각각 붙여넣으세요.<br>이 페이지는 입력한 정보를 저장하거나 전송하지 않습니다.</p>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+const grade=document.getElementById('grade'),klass=document.getElementById('klass'),number=document.getElementById('number'),email=document.getElementById('email'),copyEmail=document.getElementById('copyEmail'),toast=document.getElementById('toast');
+for(let i=1;i<=20;i++){const option=document.createElement('option');option.value=String(i);option.textContent=i+'반';klass.append(option)}
+let currentEmail='',toastTimeout;
+function update(){const n=Number(number.value),valid=grade.value&&klass.value&&Number.isInteger(n)&&n>=1&&n<=99&&number.value.trim()!=='';currentEmail=valid?'ssang'+grade.value+klass.value+String(n).padStart(2,'0')+'@ssangnyeong.es.kr':'';email.textContent=currentEmail||'학년 · 반 · 번호를 입력해 주세요';email.classList.toggle('empty',!currentEmail);copyEmail.disabled=!currentEmail}
+[grade,klass,number].forEach(x=>x.addEventListener('input',update));
+function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove('show'),2200)}
+async function copy(value,msg){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value)}else{const t=document.createElement('textarea');t.value=value;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();if(!document.execCommand('copy'))throw new Error('복사 실패');t.remove()}notify(msg)}catch(e){notify('복사할 수 없습니다. 글자를 길게 눌러 복사해 주세요.')}}
+copyEmail.addEventListener('click',()=>{if(currentEmail)copy(currentEmail,'계정 주소를 복사했어요!')});document.getElementById('copyPassword').addEventListener('click',()=>copy('12341234','비밀번호를 복사했어요!'));
+</script>
+</body>
+</html>
